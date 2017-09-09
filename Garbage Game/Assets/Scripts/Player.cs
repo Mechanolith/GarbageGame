@@ -7,11 +7,15 @@ public class Player : MonoBehaviour {
     public float moveSpeed = 150f;
     public float grabRadius = 1.5f;
     public float grabRange = 3f;
+    public GameObject holdPoint = null;
+    public float throwForce = 25f;
+    public float airTime = 2f;
 
     Rigidbody2D rBody = null;
     Vector2 moveVector = Vector2.zero;
     Vector2 facing = Vector2.right;
     bool isHolding = false;
+    Transform heldObject = null;
 
     private void Awake()
     {
@@ -50,6 +54,11 @@ public class Player : MonoBehaviour {
 
         rBody.velocity = moveVector.normalized * moveSpeed * Time.deltaTime;
 
+        if (isHolding)
+        {
+            heldObject.position = holdPoint.transform.position;
+        }
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
             if (!isHolding)
@@ -71,6 +80,14 @@ public class Player : MonoBehaviour {
         LayerMask mask = 1 << 9; //Only hit the trash layer.
         rayHit = Physics2D.CircleCast(transform.position, grabRadius, facing, grabRange, mask);
 
+        if(rayHit.transform != null)
+        {
+            rayHit.collider.enabled = false;
+            rayHit.transform.position = holdPoint.transform.position;
+            heldObject = rayHit.transform;
+            isHolding = true;
+        }
+
         Debug.Log("RAY HIT " + rayHit.point);
     }
 
@@ -85,6 +102,10 @@ public class Player : MonoBehaviour {
 
     void Throw()
     {
-
+        heldObject.gameObject.layer = 12;
+        heldObject.GetComponent<Collider2D>().enabled = true;
+        heldObject.GetComponent<Trash>().Throw(facing, throwForce, airTime);
+        isHolding = false;
+        heldObject = null;
     }
 }
