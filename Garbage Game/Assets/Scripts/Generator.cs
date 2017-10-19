@@ -15,15 +15,21 @@ public class Generator : MonoBehaviour {
     float lockTimer;
     bool isLocked;
 
-    float fuel;
+    List<GameObject> monitoredTrash = new List<GameObject>();
+    GameObject deadTrash;
+
+    [HideInInspector]
+    public float fuel;
 
     SpriteRenderer sRend;
     Color defColor;
 
     void Start() {
         fuel = startingFuel;
-        sRend = GetComponent<SpriteRenderer>();
-        defColor = sRend.color;
+        //sRend = GetComponent<SpriteRenderer>();
+        //defColor = sRend.color;
+
+        deadTrash = new GameObject();
     }
 
     void Update() {
@@ -34,6 +40,7 @@ public class Generator : MonoBehaviour {
             if (fuel <= 0f)
             {
                 Debug.Log("OUT OF FUEL! GAME OVER!");
+                fuel = 0f;
             }
         }
 
@@ -43,38 +50,75 @@ public class Generator : MonoBehaviour {
             if(lockTimer <= 0f)
             {
                 GetComponent<Collider2D>().isTrigger = true;
-                sRend.color = defColor;
+                //sRend.color = defColor;
                 isLocked = false;
             }
         }
+
+        if(monitoredTrash.Count > 0)
+        {
+            for(int index = 0; index < monitoredTrash.Count; ++index)
+            {
+                if(monitoredTrash[index].layer != 12)
+                {
+                    TakeTrash(monitoredTrash[index]);
+                    monitoredTrash[index] = deadTrash;
+                }
+            }
+
+            //Will this work?
+            monitoredTrash.RemoveAll(IsDead);
+        }
+    }
+
+    bool IsDead(GameObject obj)
+    {
+        return obj == deadTrash;
     }
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (!isLocked)
+        if (!isLocked && (col.tag == "Trash" || col.tag == "Recycling"))
         {
-            if (col.tag == "Trash")
+            if (col.gameObject.layer != 12)
             {
-                if (!isIncinerator)
-                {
-                    Lock();
-                }
+                TakeTrash(col.gameObject);
             }
-
-            if (col.tag == "Recycling")
+            else
             {
-                if (isIncinerator)
-                {
-                    Lock();
-                }
-                else
-                {
-                    GetFuel();
-                }
+                MonitorTrash(col.gameObject);
             }
-
-            Destroy(col.gameObject);
         }
+    }
+
+    void MonitorTrash(GameObject _trash)
+    {
+        monitoredTrash.Add(_trash);
+    }
+
+    void TakeTrash(GameObject _trash)
+    {
+        if (_trash.tag == "Trash")
+        {
+            if (!isIncinerator)
+            {
+                Lock();
+            }
+        }
+
+        if (_trash.tag == "Recycling")
+        {
+            if (isIncinerator)
+            {
+                Lock();
+            }
+            else
+            {
+                GetFuel();
+            }
+        }
+
+        Destroy(_trash.gameObject);
     }
 
     void Lock()
@@ -82,7 +126,7 @@ public class Generator : MonoBehaviour {
         isLocked = true;
         lockTimer = lockDuration;
         GetComponent<Collider2D>().isTrigger = false;
-        sRend.color = new Color(defColor.r, defColor.g, defColor.b, 0.5f);
+        //sRend.color = new Color(defColor.r, defColor.g, defColor.b, 0.5f);
     }
 
     void GetFuel()

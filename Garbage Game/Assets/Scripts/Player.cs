@@ -8,6 +8,7 @@ public class Player : MonoBehaviour {
     public float grabRadius = 1.5f;
     public float grabRange = 3f;
     public GameObject holdPoint = null;
+    public GameObject spriteObject = null;
     public float throwForce = 25f;
     public float airTime = 2f;
 
@@ -23,33 +24,41 @@ public class Player : MonoBehaviour {
     }
 
     void Start() {
-
+        
     }
 
     // Update is called once per frame
     void Update() {
         moveVector = Vector2.zero;
+        Quaternion sRot = Quaternion.identity;
 
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
             moveVector.y = 1f;
             facing = Vector2.up;
+            sRot.eulerAngles = new Vector3(0f, 0f, 180f);
+            spriteObject.transform.rotation = sRot;
         }
         else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
         {
             moveVector.y = -1f;
             facing = -Vector2.up;
+            spriteObject.transform.rotation = Quaternion.identity;
         }
 
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             moveVector.x = 1f;
             facing = Vector2.right;
+            sRot.eulerAngles = new Vector3(0f, 0f, 90f);
+            spriteObject.transform.rotation = sRot;
         }
         else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             moveVector.x = -1f;
             facing = -Vector2.right;
+            sRot.eulerAngles = new Vector3(0f, 0f, 270f);
+            spriteObject.transform.rotation = sRot;
         }
 
         rBody.velocity = moveVector.normalized * moveSpeed * Time.deltaTime;
@@ -88,7 +97,7 @@ public class Player : MonoBehaviour {
             isHolding = true;
         }
 
-        Debug.Log("RAY HIT " + rayHit.point);
+        //Debug.Log("RAY HIT " + rayHit.point);
     }
 
     void GrabDebug()
