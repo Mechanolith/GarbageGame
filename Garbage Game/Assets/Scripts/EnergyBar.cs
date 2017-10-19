@@ -54,9 +54,14 @@ public class EnergyBar : MonoBehaviour {
         }
         else if (counter != flashTime)
         {
-            counter = flashTime;
-            bar.color = startCol;
-            isRed = false;
+            OnReset();
         }
 	}
+
+    public void OnReset()
+    {
+        counter = flashTime;
+        bar.color = startCol;
+        isRed = false;
+    }
 }

@@ -29,58 +29,71 @@ public class Player : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        moveVector = Vector2.zero;
-        Quaternion sRot = Quaternion.identity;
+        if (GameManager.inst.state == GameState.e_Game)
+        {
+            moveVector = Vector2.zero;
+            Quaternion sRot = Quaternion.identity;
 
-        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
-        {
-            moveVector.y = 1f;
-            facing = Vector2.up;
-            sRot.eulerAngles = new Vector3(0f, 0f, 180f);
-            spriteObject.transform.rotation = sRot;
-        }
-        else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
-        {
-            moveVector.y = -1f;
-            facing = -Vector2.up;
-            spriteObject.transform.rotation = Quaternion.identity;
-        }
-
-        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
-        {
-            moveVector.x = 1f;
-            facing = Vector2.right;
-            sRot.eulerAngles = new Vector3(0f, 0f, 90f);
-            spriteObject.transform.rotation = sRot;
-        }
-        else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
-        {
-            moveVector.x = -1f;
-            facing = -Vector2.right;
-            sRot.eulerAngles = new Vector3(0f, 0f, 270f);
-            spriteObject.transform.rotation = sRot;
-        }
-
-        rBody.velocity = moveVector.normalized * moveSpeed * Time.deltaTime;
-
-        if (isHolding)
-        {
-            heldObject.position = holdPoint.transform.position;
-        }
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if (!isHolding)
+            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
             {
-                Pickup();
+                moveVector.y = 1f;
+                facing = Vector2.up;
+                sRot.eulerAngles = new Vector3(0f, 0f, 180f);
+                spriteObject.transform.rotation = sRot;
             }
-            else
+            else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
             {
-                Throw();
+                moveVector.y = -1f;
+                facing = -Vector2.up;
+                spriteObject.transform.rotation = Quaternion.identity;
             }
-        }
 
-        GrabDebug();
+            if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+            {
+                moveVector.x = 1f;
+                facing = Vector2.right;
+                sRot.eulerAngles = new Vector3(0f, 0f, 90f);
+                spriteObject.transform.rotation = sRot;
+            }
+            else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+            {
+                moveVector.x = -1f;
+                facing = -Vector2.right;
+                sRot.eulerAngles = new Vector3(0f, 0f, 270f);
+                spriteObject.transform.rotation = sRot;
+            }
+
+            rBody.velocity = moveVector.normalized * moveSpeed * Time.deltaTime;
+
+            if (isHolding)
+            {
+                heldObject.position = holdPoint.transform.position;
+            }
+
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                if (!isHolding)
+                {
+                    Pickup();
+                }
+                else
+                {
+                    Throw();
+                }
+            }
+
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                GameManager.inst.ToMenu();
+            }
+
+            GrabDebug();
+        }
+        else
+        {
+            moveVector = Vector2.zero;
+            rBody.velocity = Vector2.zero;
+        }
     }
 
     void Pickup()

@@ -7,10 +7,11 @@ public class Generator : MonoBehaviour {
     public bool isIncinerator;
 
     public float startingFuel = 60f;
-    public float decayRate = 1f;
+    public float initialDecay = 1f;
+    public float decayIncrease = 0.01f;
     public float maxFuel = 100f;
     public float fuelPerTrash = 4f;
-    
+
     public float lockDuration;
     float lockTimer;
     bool isLocked;
@@ -20,27 +21,38 @@ public class Generator : MonoBehaviour {
 
     [HideInInspector]
     public float fuel;
+    float decayRate;
 
     SpriteRenderer sRend;
     Color defColor;
 
+    TrashGod tGod;
+
     void Start() {
         fuel = startingFuel;
+        decayRate = initialDecay;
         //sRend = GetComponent<SpriteRenderer>();
         //defColor = sRend.color;
 
         deadTrash = new GameObject();
+
+        tGod = GameObject.Find("Trash God").GetComponent<TrashGod>();
     }
 
     void Update() {
         if (!isIncinerator)
         {
-            fuel -= decayRate * Time.deltaTime;
-
-            if (fuel <= 0f)
+            if (GameManager.inst.state == GameState.e_Game)
             {
-                Debug.Log("OUT OF FUEL! GAME OVER!");
-                fuel = 0f;
+                fuel -= decayRate * Time.deltaTime;
+                decayRate += decayIncrease * Time.deltaTime;
+
+
+                if (fuel <= 0f)
+                {
+                    fuel = 0f;
+                    GameManager.inst.EndGame();
+                }
             }
         }
 
@@ -49,9 +61,7 @@ public class Generator : MonoBehaviour {
             lockTimer -= Time.deltaTime;
             if(lockTimer <= 0f)
             {
-                GetComponent<Collider2D>().isTrigger = true;
-                //sRend.color = defColor;
-                isLocked = false;
+                Unlock();
             }
         }
 
@@ -66,7 +76,7 @@ public class Generator : MonoBehaviour {
                 }
             }
 
-            //Will this work?
+            //Remove any we've deleted.
             monitoredTrash.RemoveAll(IsDead);
         }
     }
@@ -118,7 +128,8 @@ public class Generator : MonoBehaviour {
             }
         }
 
-        Destroy(_trash.gameObject);
+        tGod.activeTrash.Remove(_trash);
+        Destroy(_trash);
     }
 
     void Lock()
@@ -129,8 +140,26 @@ public class Generator : MonoBehaviour {
         //sRend.color = new Color(defColor.r, defColor.g, defColor.b, 0.5f);
     }
 
+    void Unlock()
+    {
+        GetComponent<Collider2D>().isTrigger = true;
+        //sRend.color = defColor;
+        isLocked = false;
+    }
+
     void GetFuel()
     {
         fuel += fuelPerTrash;
+        if(fuel > maxFuel)
+        {
+            fuel = maxFuel;
+        }
+    }
+
+    public void OnReset()
+    {
+        fuel = startingFuel;
+        decayRate = initialDecay;
+        Unlock();
     }
 }
