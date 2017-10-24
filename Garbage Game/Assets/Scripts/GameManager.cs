@@ -27,6 +27,13 @@ public class GameManager : MonoBehaviour
     public TrashGod tGod;
     public EnergyBar eBar;
 
+    public EndGameUI endUI;
+
+    [HideInInspector]
+    public float totalTime;
+    [HideInInspector]
+    public float itemsRecycled;
+
     void Awake()
     {
         inst = this;
@@ -41,7 +48,10 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if(state == GameState.e_Game)
+        {
+            totalTime += Time.deltaTime;
+        }
     }
 
     public void StartGame()
@@ -55,6 +65,8 @@ public class GameManager : MonoBehaviour
         incinerator.OnReset();
         tGod.OnReset();
         eBar.OnReset();
+        itemsRecycled = 0;
+        totalTime = 0f;
 
         Instantiate(playerPrefab, Vector3.zero, Quaternion.identity);
         state = GameState.e_Game;
@@ -65,6 +77,7 @@ public class GameManager : MonoBehaviour
         gameUI.SetActive(false);
         menuUI.SetActive(false);
         postUI.SetActive(true);
+        endUI.ShowResults(totalTime, itemsRecycled, tGod.wrongList);
         state = GameState.e_PostGame;
     }
 
@@ -76,6 +89,8 @@ public class GameManager : MonoBehaviour
 
         ResetPlayer();
         tGod.OnReset();
+        itemsRecycled = 0;
+        totalTime = 0f;
 
         state = GameState.e_MainMenu;
     }

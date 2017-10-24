@@ -112,7 +112,7 @@ public class Generator : MonoBehaviour {
         {
             if (!isIncinerator)
             {
-                Lock();
+                Lock(_trash.GetComponent<Trash>());
             }
         }
 
@@ -120,7 +120,7 @@ public class Generator : MonoBehaviour {
         {
             if (isIncinerator)
             {
-                Lock();
+                Lock(_trash.GetComponent<Trash>());
             }
             else
             {
@@ -132,11 +132,12 @@ public class Generator : MonoBehaviour {
         Destroy(_trash);
     }
 
-    void Lock()
+    void Lock(Trash _trash)
     {
         isLocked = true;
         lockTimer = lockDuration;
         GetComponent<Collider2D>().isTrigger = false;
+        tGod.WrongTrash(_trash);
         //sRend.color = new Color(defColor.r, defColor.g, defColor.b, 0.5f);
     }
 
@@ -154,6 +155,8 @@ public class Generator : MonoBehaviour {
         {
             fuel = maxFuel;
         }
+
+        ++GameManager.inst.itemsRecycled;
     }
 
     public void OnReset()

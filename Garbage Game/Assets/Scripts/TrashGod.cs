@@ -2,10 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public class TrashInfo
+{
+    public int ID;
+    public GameObject trashObject;
+    public string name;
+    public string type;
+    public string info;
+    public Sprite image;
+}
+
 public class TrashGod : MonoBehaviour {
 
-    public List<GameObject> trashList = new List<GameObject>();
-    public List<GameObject> recycleList = new List<GameObject>();
+    public List<TrashInfo> trashList = new List<TrashInfo>();
+    public List<TrashInfo> recycleList = new List<TrashInfo>();
+
+    [HideInInspector]
+    public List<TrashInfo> fullList = new List<TrashInfo>();
+    [HideInInspector]
+    public List<TrashInfo> wrongList = new List<TrashInfo>();
 
     public float recycleChance;
 
@@ -17,6 +33,8 @@ public class TrashGod : MonoBehaviour {
 
 	void Start () {
         spawnTimer = spawnDelay;
+        fullList.AddRange(trashList);
+        fullList.AddRange(recycleList);
 	}
 
 	void Update () {
@@ -44,13 +62,13 @@ public class TrashGod : MonoBehaviour {
         }
     }
 
-    void MakeTrash(List<GameObject> _trashList)
+    void MakeTrash(List<TrashInfo> _trashList)
     {
         int rand = Random.Range(0, _trashList.Count);
 
         spawnPoint = new Vector3(Random.Range(-5f, 5f), Random.Range(-5f, 5f), 0f);
 
-        GameObject trash = Instantiate(_trashList[rand], spawnPoint, Quaternion.identity) as GameObject;
+        GameObject trash = Instantiate(_trashList[rand].trashObject, spawnPoint, Quaternion.identity) as GameObject;
 
         activeTrash.Add(trash);
     }
@@ -63,5 +81,24 @@ public class TrashGod : MonoBehaviour {
         }
 
         activeTrash.Clear();
+        wrongList.Clear();
+
+        spawnTimer = spawnDelay;
+    }
+
+    public void WrongTrash(Trash _trash)
+    {
+        for(int index = 0; index < fullList.Count; ++index)
+        {
+            if (fullList[index].ID == ((int)_trash.trashType - 1))
+            {
+                if (!wrongList.Contains(fullList[index]))
+                {
+                    wrongList.Add(fullList[index]);
+                }
+
+                break;
+            }
+        }
     }
 }

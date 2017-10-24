@@ -6,21 +6,36 @@ public class Trash : MonoBehaviour {
 
     public enum TrashType
     {
+        //Trash
         None,
-        RedTrash,
-        OrangeTrash
-    }
-
-    public enum RecycleType
-    {
-        None,
-        BlueRecycle,
-        GreenRecycle
+        AppleCore,
+        Biscuits,
+        BrokenGlass,
+        CeramicPlate,
+        ChipPack,
+        GlassCup,
+        FishBones,
+        JuiceBox,
+        MilkBottle,
+        Napkin,
+        OldCelery,
+        OldBread,
+        PlasticBag,
+        PringlesCan,
+        Styrofoam,
+        //Recyclables
+        AluminiumCan,
+        Cardboard,
+        GlassBottle,
+        GlassJar,
+        PaperScraps,
+        PetFoodCan,
+        Newspaper,
+        SprayCan
     }
 
     public bool isRecyclable;
     public TrashType trashType = TrashType.None;
-    public RecycleType recType = RecycleType.None;
 
     float airTimer;
     bool throwing;
