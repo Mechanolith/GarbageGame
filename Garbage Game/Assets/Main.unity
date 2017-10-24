@@ -290,6 +290,7 @@ GameObject:
   - component: {fileID: 135345398}
   - component: {fileID: 135345400}
   - component: {fileID: 135345399}
+  - component: {fileID: 135345401}
   m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
@@ -354,6 +355,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 135345397}
+--- !u!114 &135345401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 135345397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 1, g: 1, b: 1, a: 1}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!1 &142049877
 GameObject:
   m_ObjectHideFlags: 0
@@ -464,7 +479,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &154777827
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1010,6 +1025,7 @@ GameObject:
   - component: {fileID: 400253813}
   - component: {fileID: 400253815}
   - component: {fileID: 400253814}
+  - component: {fileID: 400253816}
   m_Layer: 5
   m_Name: Wrong Title
   m_TagString: Untagged
@@ -1030,10 +1046,10 @@ RectTransform:
   m_Father: {fileID: 1707527700}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 50, y: -25.25}
-  m_SizeDelta: {x: 253.1, y: 50.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 212.8, y: 50.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &400253814
 MonoBehaviour:
@@ -1058,22 +1074,36 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 35
     m_FontStyle: 1
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 1
     m_MaxSize: 115
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
-    m_VerticalOverflow: 1
+    m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Apple Core
+  m_Text: Aluminium Can
 --- !u!222 &400253815
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 400253812}
+--- !u!114 &400253816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 400253812}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0.8161765, g: 0.8161765, b: 0.8161765, a: 0.722}
+  m_EffectDistance: {x: 0.35, y: -0.35}
+  m_UseGraphicAlpha: 1
 --- !u!1 &436044390
 GameObject:
   m_ObjectHideFlags: 0
@@ -1776,7 +1806,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &674874485
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1923,6 +1953,7 @@ GameObject:
   - component: {fileID: 764093387}
   - component: {fileID: 764093389}
   - component: {fileID: 764093388}
+  - component: {fileID: 764093390}
   m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
@@ -1987,6 +2018,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 764093386}
+--- !u!114 &764093390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 764093386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 1, g: 1, b: 1, a: 1}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!1 &767406445
 GameObject:
   m_ObjectHideFlags: 0
@@ -2164,6 +2209,7 @@ GameObject:
   - component: {fileID: 868188303}
   - component: {fileID: 868188305}
   - component: {fileID: 868188304}
+  - component: {fileID: 868188306}
   m_Layer: 5
   m_Name: Results Text
   m_TagString: Untagged
@@ -2228,6 +2274,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 868188302}
+--- !u!114 &868188306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 868188302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 1, g: 1, b: 1, a: 1}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!1001 &898155729
 Prefab:
   m_ObjectHideFlags: 0
@@ -3208,56 +3268,56 @@ MonoBehaviour:
     info: 
     image: {fileID: 21300000, guid: b65f8a5151288374faa747b205a51a87, type: 3}
   recycleList:
-  - ID: 16
+  - ID: 15
     trashObject: {fileID: 1742962838908440, guid: 2680b785c73ec0f4fb05be0e5090d13a,
       type: 2}
     name: Aluminium Can
     type: RECYCLE IT!
     info: 
     image: {fileID: 21300000, guid: c76854f21eab13943845371340d6931d, type: 3}
-  - ID: 17
+  - ID: 16
     trashObject: {fileID: 1290847152542602, guid: 59d0a98ba725070419cacdad21369f2e,
       type: 2}
     name: Cardboard
     type: RECYCLE IT!
     info: 
     image: {fileID: 21300000, guid: 397961db2b155f442a2ac045c6f9774c, type: 3}
-  - ID: 18
+  - ID: 17
     trashObject: {fileID: 1252710138611476, guid: e313203f24c67874fabee7a7b542f48b,
       type: 2}
     name: Glass Bottle
     type: RECYCLE IT!
     info: 
     image: {fileID: 21300000, guid: 32bcbce04a5758f428c6e0fd89c787af, type: 3}
-  - ID: 19
+  - ID: 18
     trashObject: {fileID: 1195744317350958, guid: 27fb86435de3e7c4585f0e89d1aed17e,
       type: 2}
     name: Glass Jar
     type: RECYCLE IT!
     info: 
     image: {fileID: 21300000, guid: fdd75244bdf75784dbd472f8258a87a6, type: 3}
-  - ID: 20
+  - ID: 19
     trashObject: {fileID: 1397438640392574, guid: 49ba13bd101d68c4281f2d52591a1e7b,
       type: 2}
     name: Newspaper
     type: RECYCLE IT!
     info: 
     image: {fileID: 21300000, guid: 35e57ac627e715e4e89f7b9d4560b746, type: 3}
-  - ID: 21
+  - ID: 20
     trashObject: {fileID: 1148783459449036, guid: 9ad47f327375cab4493b5bbcd98ec8de,
       type: 2}
     name: Paper Scraps
     type: RECYCLE IT!
     info: 
     image: {fileID: 21300000, guid: 5eb3890fad30d4646a1a71b462525821, type: 3}
-  - ID: 22
+  - ID: 21
     trashObject: {fileID: 1529397378005460, guid: e0fe895ab0f89de47b4568fe285e8a57,
       type: 2}
     name: Food Tin
     type: RECYCLE IT!
     info: 
     image: {fileID: 21300000, guid: 1e4e7257cd69c5f4e80a3237a436ae89, type: 3}
-  - ID: 23
+  - ID: 22
     trashObject: {fileID: 1099793718339086, guid: 2533c2bd878359b4eb797501801dd4ef,
       type: 2}
     name: Spray Can
@@ -3266,7 +3326,7 @@ MonoBehaviour:
     image: {fileID: 21300000, guid: aac746aabe03f5344ba026aa91249772, type: 3}
   fullList: []
   wrongList: []
-  recycleChance: 50
+  recycleChance: 75
   spawnDelay: 2
   spawnPoint: {x: 0, y: 0, z: 0}
   activeTrash: []
@@ -3941,6 +4001,7 @@ GameObject:
   - component: {fileID: 1545217490}
   - component: {fileID: 1545217492}
   - component: {fileID: 1545217491}
+  - component: {fileID: 1545217493}
   m_Layer: 5
   m_Name: Wrong Type
   m_TagString: Untagged
@@ -3961,9 +4022,9 @@ RectTransform:
   m_Father: {fileID: 1707527700}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 50, y: -73.8005}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 179, y: 36.601}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1545217491
@@ -4005,6 +4066,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1545217489}
+--- !u!114 &1545217493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1545217489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0.8161765, g: 0.8161765, b: 0.8161765, a: 0.722}
+  m_EffectDistance: {x: 0.35, y: -0.35}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1579637992
 GameObject:
   m_ObjectHideFlags: 0
@@ -5263,9 +5338,9 @@ RectTransform:
   m_Father: {fileID: 1707527700}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 50, y: -150.95099}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 220, y: 107.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2000150680
@@ -5338,9 +5413,9 @@ MonoBehaviour:
   isIncinerator: 0
   startingFuel: 80
   initialDecay: 1
-  decayIncrease: 0.05
+  decayIncrease: 0.025
   maxFuel: 100
-  fuelPerTrash: 4
+  fuelPerTrash: 5
   lockDuration: 3
   fuel: 0
 --- !u!60 &2047207155
