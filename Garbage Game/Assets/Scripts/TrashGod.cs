@@ -60,6 +60,8 @@ public class TrashGod : MonoBehaviour {
         {
             MakeTrash(trashList);
         }
+
+        GameManager.inst.aGod.PlaySFX(SFXType.Spawn);
     }
 
     void MakeTrash(List<TrashInfo> _trashList)

@@ -111,6 +111,8 @@ public class Player : MonoBehaviour {
         }
 
         //Debug.Log("RAY HIT " + rayHit.point);
+
+        GameManager.inst.aGod.PlaySFX(SFXType.Pickup);
     }
 
     void GrabDebug()
@@ -129,5 +131,7 @@ public class Player : MonoBehaviour {
         heldObject.GetComponent<Trash>().Throw(facing, throwForce, airTime);
         isHolding = false;
         heldObject = null;
+
+        GameManager.inst.aGod.PlaySFX(SFXType.Throw);
     }
 }

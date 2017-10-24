@@ -58,6 +58,7 @@ public class Trash : MonoBehaviour {
             {
                 throwing = false;
                 gameObject.layer = 9;
+                GameManager.inst.aGod.PlaySFX(SFXType.Drop);
             }
         }
     }

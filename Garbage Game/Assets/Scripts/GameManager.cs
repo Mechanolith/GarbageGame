@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
     public Generator recycler;
     public Generator incinerator;
     public TrashGod tGod;
+    public AudioGod aGod;
     public EnergyBar eBar;
 
     public EndGameUI endUI;
@@ -56,6 +57,8 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
+        aGod.PlaySFX(SFXType.Button);
+
         menuUI.SetActive(false);
         postUI.SetActive(false);
         gameUI.SetActive(true);
@@ -74,6 +77,7 @@ public class GameManager : MonoBehaviour
 
     public void EndGame()
     {
+        aGod.PlaySFX(SFXType.GameOver);
         gameUI.SetActive(false);
         menuUI.SetActive(false);
         postUI.SetActive(true);
@@ -83,6 +87,8 @@ public class GameManager : MonoBehaviour
 
     public void ToMenu()
     {
+        aGod.PlaySFX(SFXType.Button);
+
         postUI.SetActive(false);
         gameUI.SetActive(false);
         menuUI.SetActive(true);

@@ -78,6 +78,7 @@ public class EndGameUI : MonoBehaviour {
         }
 
         DisplayWrong(currentWrong);
+        GameManager.inst.aGod.PlaySFX(SFXType.Button);
     }
 
     public void PrevWrong()
@@ -92,6 +93,8 @@ public class EndGameUI : MonoBehaviour {
         }
 
         DisplayWrong(currentWrong);
+
+        GameManager.inst.aGod.PlaySFX(SFXType.Button);
     }
 
     void DisplayWrong(int ID)

@@ -114,6 +114,10 @@ public class Generator : MonoBehaviour {
             {
                 Lock(_trash.GetComponent<Trash>());
             }
+            else
+            {
+                GameManager.inst.aGod.PlaySFX(SFXType.Incinerate);
+            }
         }
 
         if (_trash.tag == "Recycling")
@@ -139,6 +143,8 @@ public class Generator : MonoBehaviour {
         GetComponent<Collider2D>().isTrigger = false;
         tGod.WrongTrash(_trash);
         //sRend.color = new Color(defColor.r, defColor.g, defColor.b, 0.5f);
+
+        GameManager.inst.aGod.PlaySFX(SFXType.Wrong);
     }
 
     void Unlock()
@@ -146,6 +152,8 @@ public class Generator : MonoBehaviour {
         GetComponent<Collider2D>().isTrigger = true;
         //sRend.color = defColor;
         isLocked = false;
+
+        GameManager.inst.aGod.PlaySFX(SFXType.Unlock);
     }
 
     void GetFuel()
@@ -157,6 +165,8 @@ public class Generator : MonoBehaviour {
         }
 
         ++GameManager.inst.itemsRecycled;
+
+        GameManager.inst.aGod.PlaySFX(SFXType.Generate);
     }
 
     public void OnReset()

@@ -10,6 +10,8 @@ public class EnergyBar : MonoBehaviour {
 
     public float flashTime;
     public float flashLimit;
+    public int cyclesPerSound = 3;
+    int curCycles = 0;
     float counter;
     bool isRed;
     Color startCol;
@@ -33,7 +35,7 @@ public class EnergyBar : MonoBehaviour {
         }
         transform.localScale = new Vector3(transform.localScale.x, normalisedSize, transform.localScale.z);
 
-        if (gen.fuel < flashLimit * (gen.maxFuel * (1f/100f)))   //If under X% max fuel.
+        if (gen.fuel < flashLimit * (gen.maxFuel * (1f/100f)) && GameManager.inst.state == GameState.e_Game)   //If under X% max fuel.
         {
             counter -= Time.deltaTime;
             if (counter <= 0)
@@ -47,6 +49,14 @@ public class EnergyBar : MonoBehaviour {
                 {
                     bar.color = flashCol;
                     isRed = true;
+
+                    if (curCycles == 0)
+                    {
+                        GameManager.inst.aGod.PlaySFX(SFXType.Warning);
+                    }
+
+                    ++curCycles;
+                    curCycles %= cyclesPerSound;
                 }
 
                 counter = flashTime;
