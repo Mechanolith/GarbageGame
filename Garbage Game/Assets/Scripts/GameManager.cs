@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour
     public GameObject menuUI;
     public GameObject gameUI;
     public GameObject postUI;
+    public GameObject creditsUI;
+    public GameObject menuButtons;
 
     public Generator recycler;
     public Generator incinerator;
@@ -44,6 +46,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         ToMenu();
+        HideCredits();
     }
 
     // Update is called once per frame
@@ -99,6 +102,20 @@ public class GameManager : MonoBehaviour
         totalTime = 0f;
 
         state = GameState.e_MainMenu;
+    }
+
+    public void ShowCredits()
+    {
+        aGod.PlaySFX(SFXType.Button);
+        menuButtons.SetActive(false);
+        creditsUI.SetActive(true);
+    }
+
+    public void HideCredits()
+    {
+        aGod.PlaySFX(SFXType.Button);
+        menuButtons.SetActive(true);
+        creditsUI.SetActive(false);
     }
 
     public void QuitGame()

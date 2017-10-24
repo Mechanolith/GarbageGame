@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 077036730236b2c42ab5e530fcb4814f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isRecyclable: 0
+  isRecyclable: 1
   trashType: 9
 --- !u!212 &212269266164770732
 SpriteRenderer:
