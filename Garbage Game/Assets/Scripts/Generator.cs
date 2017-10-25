@@ -174,6 +174,9 @@ public class Generator : MonoBehaviour {
         {
             Instantiate(wrongRecParticle, wrongRecSpawn);
         }
+
+        GameManager.inst.flashing = true;
+        GameManager.inst.flashTimer = 0f;
     }
 
     void Unlock()

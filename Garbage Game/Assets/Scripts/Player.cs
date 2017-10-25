@@ -18,6 +18,8 @@ public class Player : MonoBehaviour {
     bool isHolding = false;
     Transform heldObject = null;
 
+    public Animator anim;
+
     private void Awake()
     {
         rBody = GetComponent<Rigidbody2D>();
@@ -34,33 +36,39 @@ public class Player : MonoBehaviour {
             moveVector = Vector2.zero;
             Quaternion sRot = Quaternion.identity;
 
+            bool walking = false;
+
             if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
             {
                 moveVector.y = 1f;
                 facing = Vector2.up;
-                sRot.eulerAngles = new Vector3(0f, 0f, 180f);
+                sRot.eulerAngles = new Vector3(0f, 0f, 0f);
                 spriteObject.transform.rotation = sRot;
+                walking = true;
             }
             else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
             {
                 moveVector.y = -1f;
                 facing = -Vector2.up;
-                spriteObject.transform.rotation = Quaternion.identity;
+                sRot.eulerAngles = new Vector3(0f, 180f, 0f);
+                walking = true;
             }
 
             if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
             {
                 moveVector.x = 1f;
                 facing = Vector2.right;
-                sRot.eulerAngles = new Vector3(0f, 0f, 90f);
+                sRot.eulerAngles = new Vector3(0f, 0f, 0f);
                 spriteObject.transform.rotation = sRot;
+                walking = true;
             }
             else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
             {
                 moveVector.x = -1f;
                 facing = -Vector2.right;
-                sRot.eulerAngles = new Vector3(0f, 0f, 270f);
+                sRot.eulerAngles = new Vector3(0f, 180f, 0f);
                 spriteObject.transform.rotation = sRot;
+                walking = true;
             }
 
             rBody.velocity = moveVector.normalized * moveSpeed * Time.deltaTime;
@@ -87,6 +95,15 @@ public class Player : MonoBehaviour {
                 GameManager.inst.ToMenu();
             }
 
+            if (walking)
+            {
+                anim.SetInteger("State", 1);
+            }
+            else
+            {
+                anim.SetInteger("State", 0);
+            }
+
             GrabDebug();
         }
         else
@@ -108,11 +125,12 @@ public class Player : MonoBehaviour {
             rayHit.transform.position = holdPoint.transform.position;
             heldObject = rayHit.transform;
             isHolding = true;
+
+            GameManager.inst.aGod.PlaySFX(SFXType.Pickup);
+            anim.SetBool("Carrying", true);
         }
 
-        //Debug.Log("RAY HIT " + rayHit.point);
-
-        GameManager.inst.aGod.PlaySFX(SFXType.Pickup);
+        //Debug.Log("RAY HIT " + rayHit.point);        
     }
 
     void GrabDebug()
@@ -133,5 +151,6 @@ public class Player : MonoBehaviour {
         heldObject = null;
 
         GameManager.inst.aGod.PlaySFX(SFXType.Throw);
+        anim.SetBool("Carrying", false);
     }
 }

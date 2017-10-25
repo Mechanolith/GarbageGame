@@ -18,12 +18,20 @@ public class EnergyBar : MonoBehaviour {
     public Color flashCol;
     Image bar;
 
+    public SpriteRenderer flashSprite;
+    public float flashRate;
+    public AnimationCurve flashCurve;
+    float flashTimer;
+    Vector3 startSize;
+    public float sizeMulti;
+
 	// Use this for initialization
 	void Start () {
         fullSize = transform.localScale.y;
         counter = 0f;
         bar = GetComponent<Image>();
         startCol = bar.color;
+        startSize = flashSprite.transform.localScale;
     }
 	
 	// Update is called once per frame
@@ -61,6 +69,8 @@ public class EnergyBar : MonoBehaviour {
 
                 counter = flashTime;
             }
+
+            EvaluateFlash();
         }
         else if (counter != flashTime)
         {
@@ -73,5 +83,23 @@ public class EnergyBar : MonoBehaviour {
         counter = flashTime;
         bar.color = startCol;
         isRed = false;
+
+        Color curCol = flashSprite.color;
+        flashSprite.color = new Color(curCol.r, curCol.g, curCol.b, 0f);
+
+        flashSprite.transform.localScale = startSize;
+    }
+
+    void EvaluateFlash()
+    {
+        flashTimer += Time.deltaTime * flashRate;
+        flashTimer %= 1;
+
+        float alphaVal = flashCurve.Evaluate(flashTimer);
+
+        Color curCol = flashSprite.color;
+        flashSprite.color = new Color(curCol.r, curCol.g, curCol.b, alphaVal);
+
+        flashSprite.transform.localScale = startSize * sizeMulti * (1 + alphaVal);
     }
 }

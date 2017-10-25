@@ -18,9 +18,9 @@ public class TrashGod : MonoBehaviour {
     public List<TrashInfo> trashList = new List<TrashInfo>();
     public List<TrashInfo> recycleList = new List<TrashInfo>();
 
-    //[HideInInspector]
+    [HideInInspector]
     public List<TrashInfo> fullList = new List<TrashInfo>();
-    //[HideInInspector]
+    [HideInInspector]
     public List<TrashInfo> wrongList = new List<TrashInfo>();
 
     public float recycleChance;

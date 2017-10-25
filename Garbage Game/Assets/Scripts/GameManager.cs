@@ -29,6 +29,9 @@ public class GameManager : MonoBehaviour
     public TrashGod tGod;
     public AudioGod aGod;
     public EnergyBar eBar;
+    public TextFade sortText;
+    public TextFade recText;
+    public TextFade trashText;
 
     public EndGameUI endUI;
 
@@ -38,6 +41,15 @@ public class GameManager : MonoBehaviour
     public float totalTime;
     [HideInInspector]
     public float itemsRecycled;
+
+    [Header("Screen Flash")]
+    public SpriteRenderer screenFlash;
+    public float flashDuration;
+    public AnimationCurve flashCurve;
+    [HideInInspector]
+    public float flashTimer;
+    [HideInInspector]
+    public bool flashing = false;
 
     void Awake()
     {
@@ -58,6 +70,11 @@ public class GameManager : MonoBehaviour
         {
             totalTime += Time.deltaTime;
         }
+
+        if (flashing)
+        {
+            ScreenFlash();
+        }
     }
 
     public void StartGame()
@@ -73,6 +90,9 @@ public class GameManager : MonoBehaviour
         incinerator.OnReset();
         tGod.OnReset();
         eBar.OnReset();
+        sortText.OnReset();
+        recText.OnReset();
+        trashText.OnReset();
         itemsRecycled = 0;
         totalTime = 0f;
 
@@ -131,6 +151,25 @@ public class GameManager : MonoBehaviour
         if (player != null)
         {
             Destroy(player);
+        }
+    }
+
+    public void ScreenFlash()
+    {
+        flashTimer += Time.deltaTime;
+
+        float flashProg = flashTimer / flashDuration;
+        float alphaVal = flashCurve.Evaluate(flashProg);
+
+        Color curCol = screenFlash.color;
+        screenFlash.color = new Color(curCol.r, curCol.g, curCol.b, alphaVal);
+
+        if (flashTimer > flashDuration)
+        {
+            flashTimer = 0f;
+            flashing = false;
+
+            screenFlash.color = new Color(curCol.r, curCol.g, curCol.b, 0f);
         }
     }
 }
