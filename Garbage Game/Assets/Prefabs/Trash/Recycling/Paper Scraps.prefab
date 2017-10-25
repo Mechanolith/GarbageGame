@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isRecyclable: 1
-  trashType: 20
+  trashType: 21
 --- !u!212 &212679599934595986
 SpriteRenderer:
   m_ObjectHideFlags: 1

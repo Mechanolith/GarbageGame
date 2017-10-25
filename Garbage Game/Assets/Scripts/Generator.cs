@@ -12,9 +12,14 @@ public class Generator : MonoBehaviour {
     public float maxFuel = 100f;
     public float fuelPerTrash = 4f;
 
+    [Header("Locking")]
     public float lockDuration;
     float lockTimer;
     bool isLocked;
+
+    public SpriteRenderer bodySprite;
+    public Sprite closeSprite;
+    Sprite openSprite;
 
     List<GameObject> monitoredTrash = new List<GameObject>();
     GameObject deadTrash;
@@ -22,6 +27,14 @@ public class Generator : MonoBehaviour {
     [HideInInspector]
     public float fuel;
     float decayRate;
+
+    [Header("Particles")]
+    public GameObject incParticle;
+    public GameObject recParticle;
+    public GameObject wrongIncParticle;
+    public GameObject wrongRecParticle;
+    public Transform wrongIncSpawn;
+    public Transform wrongRecSpawn;
 
     SpriteRenderer sRend;
     Color defColor;
@@ -33,6 +46,8 @@ public class Generator : MonoBehaviour {
         decayRate = initialDecay;
         //sRend = GetComponent<SpriteRenderer>();
         //defColor = sRend.color;
+
+        openSprite = bodySprite.sprite;
 
         deadTrash = new GameObject();
 
@@ -118,6 +133,8 @@ public class Generator : MonoBehaviour {
             {
                 GameManager.inst.aGod.PlaySFX(SFXType.Incinerate);
             }
+
+            Instantiate(incParticle, _trash.transform.position, incParticle.transform.rotation);
         }
 
         if (_trash.tag == "Recycling")
@@ -125,10 +142,12 @@ public class Generator : MonoBehaviour {
             if (isIncinerator)
             {
                 Lock(_trash.GetComponent<Trash>());
+                Instantiate(incParticle, _trash.transform.position, incParticle.transform.rotation);
             }
             else
             {
                 GetFuel();
+                Instantiate(recParticle, _trash.transform.position, recParticle.transform.rotation);
             }
         }
 
@@ -145,6 +164,16 @@ public class Generator : MonoBehaviour {
         //sRend.color = new Color(defColor.r, defColor.g, defColor.b, 0.5f);
 
         GameManager.inst.aGod.PlaySFX(SFXType.Wrong);
+        bodySprite.sprite = closeSprite;
+
+        if (isIncinerator)
+        {
+            Instantiate(wrongIncParticle, wrongIncSpawn);
+        }
+        else
+        {
+            Instantiate(wrongRecParticle, wrongRecSpawn);
+        }
     }
 
     void Unlock()
@@ -154,6 +183,7 @@ public class Generator : MonoBehaviour {
         isLocked = false;
 
         GameManager.inst.aGod.PlaySFX(SFXType.Unlock);
+        bodySprite.sprite = openSprite;
     }
 
     void GetFuel()

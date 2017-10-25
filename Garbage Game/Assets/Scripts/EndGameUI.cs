@@ -54,7 +54,7 @@ public class EndGameUI : MonoBehaviour {
             flawlessText.text = tempText;
         }
 
-        if(wrongList.Count < 1)
+        if(wrongList.Count < 2)
         {
             nextButton.gameObject.SetActive(false);
             prevButton.gameObject.SetActive(false);

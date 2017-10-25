@@ -7,31 +7,31 @@ public class Trash : MonoBehaviour {
     public enum TrashType
     {
         //Trash
-        None,
-        AppleCore,
-        Biscuits,
-        BrokenGlass,
-        CeramicPlate,
-        ChipPack,
-        GlassCup,
-        FishBones,
-        JuiceBox,
-        MilkBottle,
-        Napkin,
-        OldCelery,
-        OldBread,
-        PlasticBag,
-        PringlesCan,
-        Styrofoam,
+        None            = 0,
+        AppleCore       = 1,
+        Biscuits        = 2,
+        BrokenGlass     = 3,
+        CeramicPlate    = 4,
+        ChipPack        = 5,
+        GlassCup        = 6,
+        FishBones       = 7,
+        JuiceBox        = 8,
+        MilkBottle      = 9,
+        Napkin          = 10,
+        OldCelery       = 11,
+        OldBread        = 12,
+        PlasticBag      = 13,
+        PringlesCan     = 14,
+        Styrofoam       = 15,
         //Recyclables
-        AluminiumCan,
-        Cardboard,
-        GlassBottle,
-        GlassJar,
-        PaperScraps,
-        PetFoodCan,
-        Newspaper,
-        SprayCan
+        AluminiumCan    = 16,
+        Cardboard       = 17,
+        GlassBottle     = 18,
+        GlassJar        = 19,
+        Newspaper       = 20,
+        PaperScraps     = 21,
+        PetFoodCan      = 22,
+        SprayCan        = 23
     }
 
     public bool isRecyclable;
@@ -59,6 +59,7 @@ public class Trash : MonoBehaviour {
                 throwing = false;
                 gameObject.layer = 9;
                 GameManager.inst.aGod.PlaySFX(SFXType.Drop);
+                Instantiate(GameManager.inst.trashLandParticle, transform);
             }
         }
     }

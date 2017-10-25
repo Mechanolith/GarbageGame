@@ -18,9 +18,9 @@ public class TrashGod : MonoBehaviour {
     public List<TrashInfo> trashList = new List<TrashInfo>();
     public List<TrashInfo> recycleList = new List<TrashInfo>();
 
-    [HideInInspector]
+    //[HideInInspector]
     public List<TrashInfo> fullList = new List<TrashInfo>();
-    [HideInInspector]
+    //[HideInInspector]
     public List<TrashInfo> wrongList = new List<TrashInfo>();
 
     public float recycleChance;
@@ -30,6 +30,8 @@ public class TrashGod : MonoBehaviour {
     public Vector3 spawnPoint;
 
     public List<GameObject> activeTrash = new List<GameObject>();
+
+    public GameObject spawnParticle;
 
 	void Start () {
         spawnTimer = spawnDelay;
@@ -71,8 +73,9 @@ public class TrashGod : MonoBehaviour {
         spawnPoint = new Vector3(Random.Range(-5f, 5f), Random.Range(-5f, 5f), 0f);
 
         GameObject trash = Instantiate(_trashList[rand].trashObject, spawnPoint, Quaternion.identity) as GameObject;
-
         activeTrash.Add(trash);
+
+        Instantiate(spawnParticle, spawnPoint, spawnParticle.transform.rotation);
     }
 
     public void OnReset()

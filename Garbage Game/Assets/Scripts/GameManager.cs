@@ -32,6 +32,8 @@ public class GameManager : MonoBehaviour
 
     public EndGameUI endUI;
 
+    public GameObject trashLandParticle;
+
     [HideInInspector]
     public float totalTime;
     [HideInInspector]
