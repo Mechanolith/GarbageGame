@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class TrashInfo
 {
-    public int ID;
+    public TrashType ID;
     public GameObject trashObject;
     public string name;
     public string type;
@@ -95,7 +95,7 @@ public class TrashGod : MonoBehaviour {
     {
         for(int index = 0; index < fullList.Count; ++index)
         {
-            if (fullList[index].ID == ((int)_trash.trashType - 1))
+            if (fullList[index].ID == _trash.trashType)
             {
                 if (!wrongList.Contains(fullList[index]))
                 {

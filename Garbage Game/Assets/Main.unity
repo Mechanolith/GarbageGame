@@ -179,7 +179,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 84a48f363fed4e648a1f33b97a789e76, type: 3}
     m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
@@ -400,7 +400,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: efaf8028ac29cff43af58eb1b26c134a, type: 3}
     m_FontSize: 25
     m_FontStyle: 3
     m_BestFit: 0
@@ -502,12 +502,12 @@ GameObject:
   - component: {fileID: 135345399}
   - component: {fileID: 135345401}
   m_Layer: 5
-  m_Name: Title
+  m_Name: Title Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &135345398
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1000,7 +1000,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: efaf8028ac29cff43af58eb1b26c134a, type: 3}
     m_FontSize: 12
     m_FontStyle: 1
     m_BestFit: 0
@@ -1356,7 +1356,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: efaf8028ac29cff43af58eb1b26c134a, type: 3}
     m_FontSize: 16
     m_FontStyle: 1
     m_BestFit: 0
@@ -1472,6 +1472,74 @@ SpriteRenderer:
   m_Size: {x: 0.16, y: 0.16}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+--- !u!1 &379306656
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 379306657}
+  - component: {fileID: 379306659}
+  - component: {fileID: 379306658}
+  m_Layer: 5
+  m_Name: Title
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &379306657
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 379306656}
+  m_LocalRotation: {x: -0, y: -0, z: -0.24107008, w: 0.97050774}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 3.9680026, y: 3.9680007, z: 3.9680007}
+  m_Children: []
+  m_Father: {fileID: 674874485}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -27.899002}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 7, y: 84.6}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &379306658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 379306656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: 53fbfbc6c7110a84e8adc0378ff2e037, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &379306659
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 379306656}
 --- !u!1 &399362048
 GameObject:
   m_ObjectHideFlags: 0
@@ -1571,7 +1639,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: efaf8028ac29cff43af58eb1b26c134a, type: 3}
     m_FontSize: 35
     m_FontStyle: 1
     m_BestFit: 1
@@ -2455,7 +2523,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &674874485
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2467,6 +2535,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 135345398}
+  - {fileID: 379306657}
   - {fileID: 1794897211}
   - {fileID: 1533124741}
   m_Father: {fileID: 501848796}
@@ -2511,7 +2580,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 290, y: -124.6}
+  m_AnchoredPosition: {x: 271.5, y: -124.6}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &701638886
@@ -2548,7 +2617,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 84a48f363fed4e648a1f33b97a789e76, type: 3}
     m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
@@ -2827,7 +2896,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 84a48f363fed4e648a1f33b97a789e76, type: 3}
     m_FontSize: 45
     m_FontStyle: 1
     m_BestFit: 0
@@ -3222,7 +3291,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: efaf8028ac29cff43af58eb1b26c134a, type: 3}
     m_FontSize: 18
     m_FontStyle: 0
     m_BestFit: 0
@@ -3425,7 +3494,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 84a48f363fed4e648a1f33b97a789e76, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
@@ -4288,7 +4357,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trashList:
-  - ID: 0
+  - ID: 1
     trashObject: {fileID: 1746033119339242, guid: cc97ae6f0409a53408ce644bb32f3b68,
       type: 2}
     name: Apple Core
@@ -4296,7 +4365,7 @@ MonoBehaviour:
     info: Old foods can't be recycled, there's nothing we can do with them! Make sure
       you bin 'em!
     image: {fileID: 21300000, guid: 6bd3364467138f64aaad7ec32bf2c14b, type: 3}
-  - ID: 1
+  - ID: 2
     trashObject: {fileID: 1488895133902282, guid: 5f3c3d1f066338a469cbdfdc0f465668,
       type: 2}
     name: Biscuit Packet
@@ -4304,7 +4373,7 @@ MonoBehaviour:
     info: This type of soft plastic can contaminate other paper items and get caught
       in the machinery. Put that in the bin!
     image: {fileID: 21300000, guid: 09b93d63f31418c408bda6c8b27fa476, type: 3}
-  - ID: 2
+  - ID: 3
     trashObject: {fileID: 1316695496553946, guid: 20a1d58aeb2d0f442a51d5a75f3b73f4,
       type: 2}
     name: Broken Glass
@@ -4312,7 +4381,7 @@ MonoBehaviour:
     info: Just a small piece of broken glass can contaminate up to a tonne of recyclable
       glass! Keep it out of your recycling!
     image: {fileID: 21300000, guid: 77fc695251c86a440980b2946a923152, type: 3}
-  - ID: 3
+  - ID: 4
     trashObject: {fileID: 1606468644498344, guid: 4cee17aaa0331df44849be748cd5922e,
       type: 2}
     name: Ceramics
@@ -4320,7 +4389,7 @@ MonoBehaviour:
     info: Ceramics have a higher melting temperature than glass jars and bottles,
       and therefore they can't be recycled!
     image: {fileID: 21300000, guid: 57da3217ea5ea354baf76824aa0cab17, type: 3}
-  - ID: 4
+  - ID: 5
     trashObject: {fileID: 1558947246439832, guid: db40874dea50c4149baca1de9e71c8ff,
       type: 2}
     name: Chip Packet
@@ -4328,7 +4397,7 @@ MonoBehaviour:
     info: This type of soft plastic can contaminate other paper items and get caught
       in the machinery. Put that in the bin!
     image: {fileID: 21300000, guid: 4934b63228c69af4688f086465961207, type: 3}
-  - ID: 5
+  - ID: 7
     trashObject: {fileID: 1544092489956630, guid: 64eba51633af95745b03177272911739,
       type: 2}
     name: Fish Bones
@@ -4344,7 +4413,7 @@ MonoBehaviour:
     info: Just a small piece of this type of glass can contaminate up to a tonne of
       recyclable glass! Keep it out of your recycling!
     image: {fileID: 21300000, guid: fcd4f25f46827ce4fa3c1f41483b242e, type: 3}
-  - ID: 7
+  - ID: 8
     trashObject: {fileID: 1087113716532094, guid: f2fd461e6912b444e8b8a9434f0f4f66,
       type: 2}
     name: Juice Box
@@ -4352,7 +4421,7 @@ MonoBehaviour:
     info: The straw's still there! Whilst the box itself can be recycled, the straw
       can't. Make sure you take it out!
     image: {fileID: 21300000, guid: 5357dd7aecf672844a7822f5f794f513, type: 3}
-  - ID: 8
+  - ID: 9
     trashObject: {fileID: 1423689309378250, guid: 9751dff29bbc0f04997cc2a0ad729d9e,
       type: 2}
     name: Milk Bottle
@@ -4360,14 +4429,14 @@ MonoBehaviour:
     info: Milk bottles are great for recycling, just make sure you take off the lid
       first!
     image: {fileID: 21300000, guid: 607c9700d5140754a9c8659e35fa2970, type: 3}
-  - ID: 9
+  - ID: 10
     trashObject: {fileID: 1646433365943982, guid: f4224432cda445340a6ecb1fd816e08d,
       type: 2}
     name: Napkin
     type: BIN IT!
     info: These are too contaminated to be recycled. Put them in the trash!
     image: {fileID: 21300000, guid: be149207940bdb2479af0217ed3999ad, type: 3}
-  - ID: 10
+  - ID: 12
     trashObject: {fileID: 1586659769582908, guid: 96f4fa5e2e6387d4ebaf59ac8bff8610,
       type: 2}
     name: Old Bread
@@ -4383,7 +4452,7 @@ MonoBehaviour:
     info: Old foods can't be recycled, there's nothing we can do with them! Make sure
       you bin 'em!
     image: {fileID: 21300000, guid: e53010d9649f8164a9adfd40f07fb244, type: 3}
-  - ID: 12
+  - ID: 13
     trashObject: {fileID: 1515500992138094, guid: 4e2ed23623925ba40b71eeacb7efe5bc,
       type: 2}
     name: Plastic Bag
@@ -4391,7 +4460,7 @@ MonoBehaviour:
     info: Plastic bags can get stuck in the recycling machinery and cause it to shut
       down, causing massive disruptions! Bin 'em!
     image: {fileID: 21300000, guid: dc9130a1878ad554186a63dbe790f303, type: 3}
-  - ID: 13
+  - ID: 14
     trashObject: {fileID: 1381785439629294, guid: 416ab6001d239db4498b99fe190f5ac8,
       type: 2}
     name: Chip Can
@@ -4399,7 +4468,7 @@ MonoBehaviour:
     info: These are made of too many types of material to be sorted for recycling,
       so put 'em in the trash!
     image: {fileID: 21300000, guid: 2a1b8102b1220e541996e21fadafd8a1, type: 3}
-  - ID: 14
+  - ID: 15
     trashObject: {fileID: 1683347745264744, guid: 477970d4d17031e4d8c1dd6e8771ea0d,
       type: 2}
     name: Styrofoam
@@ -4408,7 +4477,7 @@ MonoBehaviour:
       and hinder the recycling process. Throw it in the trash!
     image: {fileID: 21300000, guid: b65f8a5151288374faa747b205a51a87, type: 3}
   recycleList:
-  - ID: 15
+  - ID: 16
     trashObject: {fileID: 1742962838908440, guid: 2680b785c73ec0f4fb05be0e5090d13a,
       type: 2}
     name: Aluminium Can
@@ -4416,7 +4485,7 @@ MonoBehaviour:
     info: Using recycled cans to make new cans only takes 5% as much energy, so you
       better recyclem them!
     image: {fileID: 21300000, guid: c76854f21eab13943845371340d6931d, type: 3}
-  - ID: 16
+  - ID: 17
     trashObject: {fileID: 1290847152542602, guid: 59d0a98ba725070419cacdad21369f2e,
       type: 2}
     name: Cardboard
@@ -4424,7 +4493,7 @@ MonoBehaviour:
     info: For every 1kg of cardboard recycled, up to 1kg of greenhouse gasses is prevented
       from being created. Recycle it!
     image: {fileID: 21300000, guid: 397961db2b155f442a2ac045c6f9774c, type: 3}
-  - ID: 17
+  - ID: 18
     trashObject: {fileID: 1252710138611476, guid: e313203f24c67874fabee7a7b542f48b,
       type: 2}
     name: Glass Bottle
@@ -4432,7 +4501,7 @@ MonoBehaviour:
     info: Glass bottles are 100% recyclable, and can be recycled indefinitely. Now
       THAT'S effiency!
     image: {fileID: 21300000, guid: 32bcbce04a5758f428c6e0fd89c787af, type: 3}
-  - ID: 18
+  - ID: 19
     trashObject: {fileID: 1195744317350958, guid: 27fb86435de3e7c4585f0e89d1aed17e,
       type: 2}
     name: Glass Jar
@@ -4440,7 +4509,7 @@ MonoBehaviour:
     info: Glass jars are 100% recyclable, and can be recycled indefinitely. Now THAT'S
       effiency!
     image: {fileID: 21300000, guid: fdd75244bdf75784dbd472f8258a87a6, type: 3}
-  - ID: 19
+  - ID: 20
     trashObject: {fileID: 1397438640392574, guid: 49ba13bd101d68c4281f2d52591a1e7b,
       type: 2}
     name: Newspaper
@@ -4448,14 +4517,14 @@ MonoBehaviour:
     info: Newspapers are very much recyclable. In fact, Australia is a world leader
       in newspaper recycling. Let's keep it up!
     image: {fileID: 21300000, guid: 35e57ac627e715e4e89f7b9d4560b746, type: 3}
-  - ID: 20
+  - ID: 21
     trashObject: {fileID: 1148783459449036, guid: 9ad47f327375cab4493b5bbcd98ec8de,
       type: 2}
     name: Paper Scraps
     type: RECYCLE IT!
     info: For every tonne of paper we recycle, we save 13 trees. So get recycling!
     image: {fileID: 21300000, guid: 5eb3890fad30d4646a1a71b462525821, type: 3}
-  - ID: 21
+  - ID: 22
     trashObject: {fileID: 1529397378005460, guid: e0fe895ab0f89de47b4568fe285e8a57,
       type: 2}
     name: Food Tin
@@ -4463,7 +4532,7 @@ MonoBehaviour:
     info: Using recycled cans to make new cans only takes 5% as much energy, so you
       better recyclem them!
     image: {fileID: 21300000, guid: 1e4e7257cd69c5f4e80a3237a436ae89, type: 3}
-  - ID: 22
+  - ID: 23
     trashObject: {fileID: 1099793718339086, guid: 2533c2bd878359b4eb797501801dd4ef,
       type: 2}
     name: Spray Can
@@ -5406,7 +5475,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1533124741
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5425,7 +5494,7 @@ RectTransform:
   - {fileID: 360675613}
   - {fileID: 1835261230}
   m_Father: {fileID: 674874485}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5488,19 +5557,19 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 25
+    m_Font: {fileID: 12800000, guid: 84a48f363fed4e648a1f33b97a789e76, type: 3}
+    m_FontSize: 22
     m_FontStyle: 3
     m_BestFit: 0
     m_MinSize: 1
-    m_MaxSize: 115
+    m_MaxSize: 223
     m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: BIN IT!
+  m_Text: RECYCLE IT!
 --- !u!222 &1545217492
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5576,7 +5645,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 84a48f363fed4e648a1f33b97a789e76, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
@@ -5940,7 +6009,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 84a48f363fed4e648a1f33b97a789e76, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
@@ -6040,7 +6109,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -256.1, y: -126.9}
+  m_AnchoredPosition: {x: -224.4, y: -126.9}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1717712953
@@ -6077,7 +6146,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 84a48f363fed4e648a1f33b97a789e76, type: 3}
     m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
@@ -6166,7 +6235,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: efaf8028ac29cff43af58eb1b26c134a, type: 3}
     m_FontSize: 16
     m_FontStyle: 1
     m_BestFit: 0
@@ -6359,7 +6428,7 @@ RectTransform:
   - {fileID: 1505288041}
   - {fileID: 40703534}
   m_Father: {fileID: 674874485}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -6864,7 +6933,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 84a48f363fed4e648a1f33b97a789e76, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
@@ -6953,7 +7022,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 84a48f363fed4e648a1f33b97a789e76, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
@@ -7027,7 +7096,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 84a48f363fed4e648a1f33b97a789e76, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
@@ -7169,7 +7238,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 84a48f363fed4e648a1f33b97a789e76, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
@@ -7557,7 +7626,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: efaf8028ac29cff43af58eb1b26c134a, type: 3}
     m_FontSize: 16
     m_FontStyle: 1
     m_BestFit: 1
@@ -7831,7 +7900,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 84a48f363fed4e648a1f33b97a789e76, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
@@ -8110,7 +8179,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 84a48f363fed4e648a1f33b97a789e76, type: 3}
     m_FontSize: 25
     m_FontStyle: 1
     m_BestFit: 0
